@@ -17,3 +17,4 @@ from utils.label_map import label_map
 
 label = "headache"
 sinhala_text = label_map[label]  # Output: "මගේ හිස වේදනාව"
+
