@@ -1,15 +1,15 @@
 import logging
 import os
 from datetime import datetime
+from config import LOG_DIR
 
-# Create logs directory if it doesn't exist
-if not os.path.exists("logs"):
-    os.makedirs("logs")
+# Ensure logs directory exists
+os.makedirs(LOG_DIR, exist_ok=True)
 
-# Log file name with timestamp
-log_filename = datetime.now().strftime("logs/log_%Y-%m-%d_%H-%M-%S.log")
+# Log file with timestamp
+log_filename = datetime.now().strftime(f"{LOG_DIR}/log_%Y-%m-%d_%H-%M-%S.log")
 
-# Configure logging
+# Logging configuration
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
@@ -19,5 +19,4 @@ logging.basicConfig(
     ]
 )
 
-# Logger instance
 logger = logging.getLogger("SymptomDetectionApp")
